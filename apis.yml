@@ -1,0 +1,186 @@
+aid: capella-space
+url: https://raw.githubusercontent.com/api-evangelist/capella-space/refs/heads/main/apis.yml
+name: Capella Space
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+description: Capella Space operates a constellation of synthetic aperture radar (SAR) satellites and provides
+  on-demand, high-resolution Earth-observation imagery through a self-service Console and public API.
+  Customers can task the constellation with 15-minute scheduling cycles, search a STAC-based catalog of
+  archive collects, place orders, and download imagery products for defense, intelligence, maritime,
+  energy, insurance, and analytics use cases.
+tags:
+  - Synthetic Aperture Radar
+  - SAR
+  - Earth Observation
+  - Satellite Imagery
+  - Geospatial
+  - STAC
+  - Remote Sensing
+  - Tasking
+  - Catalog
+created: '2026-05-23'
+modified: '2026-05-23'
+specificationVersion: '0.19'
+apis:
+  - aid: capella-space:capella-tasking-api
+    name: Capella Space Tasking API
+    description: The Capella Tasking API lets customers submit imagery tasking requests against the
+      Capella SAR constellation, configure collect parameters (geometry, resolution, polarization,
+      look direction, off-nadir angle), monitor tasking and collect statuses, and manage repeat
+      tasking. Supports 15-minute scheduling cycles and flexible collection tiers.
+    humanURL: https://docs.capellaspace.com/api/tasking/
+    baseURL: https://api.capellaspace.com
+    tags:
+      - Tasking
+      - SAR
+      - Collects
+      - Scheduling
+    properties:
+      - type: Documentation
+        url: https://docs.capellaspace.com/api/tasking/
+      - type: Authentication
+        url: https://docs.capellaspace.com/
+      - type: SignUp
+        url: https://console.capellaspace.com/
+    contact:
+      - FN: Capella Space Support
+        url: https://support.capellaspace.com/
+  - aid: capella-space:capella-catalog-api
+    name: Capella Space Catalog API
+    description: The Capella Catalog API is a STAC-compliant search interface over the archive of
+      SAR collects. Clients query the catalog by geometry, time, product type, resolution, and
+      polarization to discover scenes available for ordering and download.
+    humanURL: https://docs.capellaspace.com/api/catalog/
+    baseURL: https://api.capellaspace.com
+    tags:
+      - Catalog
+      - STAC
+      - Search
+      - Discovery
+    properties:
+      - type: Documentation
+        url: https://docs.capellaspace.com/api/catalog/
+      - type: Authentication
+        url: https://docs.capellaspace.com/
+    contact:
+      - FN: Capella Space Support
+        url: https://support.capellaspace.com/
+  - aid: capella-space:capella-orders-api
+    name: Capella Space Orders API
+    description: The Capella Orders API submits and tracks orders for SAR products, manages order
+      lifecycle, and returns signed download URLs for completed imagery via endpoints such as
+      GET /orders/{orderId}/download.
+    humanURL: https://docs.capellaspace.com/accessing-data/ordering-and-downloading/
+    baseURL: https://api.capellaspace.com
+    tags:
+      - Orders
+      - Download
+      - Fulfillment
+    properties:
+      - type: Documentation
+        url: https://docs.capellaspace.com/accessing-data/ordering-and-downloading/
+      - type: Authentication
+        url: https://docs.capellaspace.com/
+    contact:
+      - FN: Capella Space Support
+        url: https://support.capellaspace.com/
+common:
+  - type: Website
+    url: https://www.capellaspace.com
+  - type: Documentation
+    url: https://docs.capellaspace.com/
+  - type: APIReference
+    url: https://support.capellaspace.com/api-reference-and-documentation
+  - type: GettingStarted
+    url: https://docs.capellaspace.com/
+  - type: Console
+    url: https://console.capellaspace.com/
+  - type: SignUp
+    url: https://console.capellaspace.com/
+  - type: Login
+    url: https://console.capellaspace.com/
+  - type: Support
+    url: https://support.capellaspace.com/
+  - type: KnowledgeBase
+    url: https://support.capellaspace.com/
+  - type: Blog
+    url: https://www.capellaspace.com/insights
+  - type: Newsroom
+    url: https://www.capellaspace.com/news
+  - type: GitHubOrganization
+    url: https://github.com/capellaspace
+  - type: SDK
+    name: Capella Console Client (Python)
+    url: https://github.com/capellaspace/console-client
+  - type: SDK
+    name: Capella Console Client Docs
+    url: https://capella-console-client.readthedocs.io/en/main/pages/api_reference.html
+  - type: SampleCode
+    name: Capella Jupyter Notebooks
+    url: https://github.com/capellaspace/jupyter-notebooks
+  - type: SampleCode
+    name: Capella Postman Collections
+    url: https://github.com/capellaspace/postman_collections
+  - type: SampleCode
+    name: Capella SLC Reader
+    url: https://github.com/capellaspace/capella-reader
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/capella-space
+  - type: Twitter
+    url: https://twitter.com/capellaspace
+  - type: YouTube
+    url: https://www.youtube.com/c/CapellaSpace
+  - type: Features
+    data:
+      - name: On-Demand SAR Tasking
+        description: Self-service tasking of the SAR constellation with 15-minute scheduling cycles
+          and multiple collection tiers.
+      - name: STAC Catalog
+        description: Spatio-Temporal Asset Catalog (STAC) compliant search interface for discovering
+          archive collects.
+      - name: Orders and Downloads
+        description: Order management API for placing, tracking, and downloading SAR imagery products.
+      - name: All-Weather, Day-Night Imaging
+        description: SAR sensors collect through clouds and at night, providing reliable revisit for
+          monitoring use cases.
+      - name: Sub-0.5m Resolution Products
+        description: Spotlight, stripmap, and sliding-spotlight products with sub-meter resolution
+          options.
+      - name: Vessel Classification Analytics
+        description: Analytics products built on top of SAR collects for maritime domain awareness.
+      - name: AWS Open Data
+        description: Subset of Capella imagery is available via the AWS Open Data registry.
+  - type: UseCases
+    data:
+      - name: Defense and Intelligence
+        description: Persistent monitoring of areas of interest for defense and intelligence customers.
+      - name: Maritime Domain Awareness
+        description: Vessel detection, classification, and dark-ship monitoring.
+      - name: Energy Infrastructure
+        description: Monitoring of pipelines, refineries, and energy assets through cloud and darkness.
+      - name: Disaster Response
+        description: Rapid imagery tasking and delivery for floods, earthquakes, and wildfires.
+      - name: Insurance and Claims
+        description: Pre- and post-event imagery for insurance underwriting and claims adjudication.
+  - type: Authentication
+    data:
+      - name: Bearer Token
+        description: Capella API authentication is token-based; credentials are issued via the Capella
+          Console for authorized accounts.
+  - type: Compliance
+    data:
+      - name: Export Controls
+        description: SAR imagery is subject to U.S. export control regulations; access is governed by
+          customer eligibility.
+  - type: Integrations
+    data:
+      - name: AWS
+        description: Capella distributes imagery via AWS infrastructure and contributes to the AWS Open
+          Data program.
+      - name: Esri ArcGIS
+        description: Capella imagery is available through Esri's geospatial ecosystem.
+      - name: STAC Ecosystem
+        description: Catalog conforms to the STAC specification, integrating with broader STAC tooling.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

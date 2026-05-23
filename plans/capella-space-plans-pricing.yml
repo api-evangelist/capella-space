@@ -1,0 +1,54 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Capella Space
+providerId: capella-space
+created: '2026-05-22'
+modified: '2026-05-22'
+tags:
+- Synthetic Aperture Radar
+- SAR
+- Earth Observation
+- Satellite Imagery
+- Geospatial
+- STAC
+- Remote Sensing
+- Tasking
+- Catalog
+description: Machine-readable plans scaffold for the Capella Space API surface. Conforms to the API Commons Plans schema.
+  Tier limits and prices are scaffold defaults; replace with provider-published values.
+plans:
+- id: capella-space-free
+  name: Free
+  type: freemium
+  description: Free entry tier for the Capella Space API surface. Intended for evaluation, prototyping, and low-volume integrations.
+    Real limits and pricing must be reconciled with the provider's published plan documentation.
+  entries:
+  - label: API Requests
+    description: Monthly API request quota across all included endpoints
+    name: api_requests
+    type: quota
+    metric: requests
+    limit: 1000
+    timeFrame: month
+    geo: global
+    domains:
+    - https://api.capellaspace.com
+    unit: 1
+    price: '0.00'
+    userMultiplied: false
+  - label: Rate Limit
+    description: Maximum requests per minute on the free tier
+    name: rate_limit
+    type: rate
+    metric: requests_per_minute
+    limit: 10
+    timeFrame: minute
+    geo: global
+    domains:
+    - https://api.capellaspace.com
+    unit: 1
+    price: '0.00'
+references:
+- name: Capella Space API Documentation
+  url: https://raw.githubusercontent.com/api-evangelist/capella-space/refs/heads/main/apis.yml
