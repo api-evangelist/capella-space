@@ -1,0 +1,335 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Capella Space API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tasking",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Submit a tasking request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.capellaspace.com/task",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit a new tasking request against the Capella SAR constellation.\n"
+        },
+        {
+          "info": {
+            "name": "Get a tasking request",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.capellaspace.com/task/:taskingrequestId",
+            "params": [
+              {
+                "name": "taskingrequestId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a tasking request"
+        },
+        {
+          "info": {
+            "name": "Get tasking request status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.capellaspace.com/task/:taskingrequestId/status",
+            "params": [
+              {
+                "name": "taskingrequestId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get tasking request status"
+        },
+        {
+          "info": {
+            "name": "Update tasking request status (review/approve/cancel)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.capellaspace.com/task/:taskingrequestId/status",
+            "params": [
+              {
+                "name": "taskingrequestId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update tasking request status (review/approve/cancel)"
+        },
+        {
+          "info": {
+            "name": "Search tasking requests",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.capellaspace.com/tasks/search",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Search tasking requests"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "RepeatRequests",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Submit a repeat tasking request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.capellaspace.com/repeat-requests",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit a repeat tasking request"
+        },
+        {
+          "info": {
+            "name": "Get a repeat tasking request",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.capellaspace.com/repeat-requests/:repeatrequestId",
+            "params": [
+              {
+                "name": "repeatrequestId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a repeat tasking request"
+        },
+        {
+          "info": {
+            "name": "Get repeat request status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.capellaspace.com/repeat-requests/:repeatrequestId/status",
+            "params": [
+              {
+                "name": "repeatrequestId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get repeat request status"
+        },
+        {
+          "info": {
+            "name": "Update repeat request status (review/approve/cancel)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.capellaspace.com/repeat-requests/:repeatrequestId/status",
+            "params": [
+              {
+                "name": "repeatrequestId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update repeat request status (review/approve/cancel)"
+        },
+        {
+          "info": {
+            "name": "Search repeat tasking requests",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.capellaspace.com/repeat-requests/search",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Search repeat tasking requests"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Tiles",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List tiles for a tasking request",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.capellaspace.com/tiles/list/:taskingrequestId",
+            "params": [
+              {
+                "name": "taskingrequestId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List tiles for a tasking request"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Collects",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List collects for a tasking request",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.capellaspace.com/collects/list/:taskingrequestId",
+            "params": [
+              {
+                "name": "taskingrequestId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List collects for a tasking request"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Orders",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Submit an order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.capellaspace.com/orders",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit an order"
+        },
+        {
+          "info": {
+            "name": "Review an order before submission",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.capellaspace.com/orders/review",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Review an order before submission"
+        },
+        {
+          "info": {
+            "name": "Get download URLs for a completed order",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.capellaspace.com/orders/:orderId/download",
+            "params": [
+              {
+                "name": "orderId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get download URLs for a completed order"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Keys",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Request an API key",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.capellaspace.com/keys"
+          },
+          "docs": "Request an API key"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
