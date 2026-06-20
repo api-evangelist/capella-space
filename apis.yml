@@ -2,7 +2,7 @@ aid: capella-space
 url: https://raw.githubusercontent.com/api-evangelist/capella-space/refs/heads/main/apis.yml
 name: Capella Space
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 description: Capella Space operates a constellation of synthetic aperture radar (SAR) satellites and provides
   on-demand, high-resolution Earth-observation imagery through a self-service Console and public API.
   Customers can task the constellation with 15-minute scheduling cycles, search a STAC-based catalog of
