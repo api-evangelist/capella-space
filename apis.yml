@@ -40,7 +40,7 @@ apis:
         url: https://docs.capellaspace.com/api/tasking/
       - type: Authentication
         url: https://docs.capellaspace.com/
-      - type: SignUp
+      - type: Signup
         url: https://console.capellaspace.com/
     contact:
       - FN: Capella Space Support
@@ -95,7 +95,7 @@ common:
     url: https://docs.capellaspace.com/
   - type: Console
     url: https://console.capellaspace.com/
-  - type: SignUp
+  - type: Signup
     url: https://console.capellaspace.com/
   - type: Login
     url: https://console.capellaspace.com/
@@ -109,10 +109,10 @@ common:
     url: https://www.capellaspace.com/news
   - type: GitHubOrganization
     url: https://github.com/capellaspace
-  - type: SDK
+  - type: SDKs
     name: Capella Console Client (Python)
     url: https://github.com/capellaspace/console-client
-  - type: SDK
+  - type: SDKs
     name: Capella Console Client Docs
     url: https://capella-console-client.readthedocs.io/en/main/pages/api_reference.html
   - type: SampleCode
