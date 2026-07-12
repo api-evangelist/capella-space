@@ -1,0 +1,16 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/capella-space-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  description: |-
+    Bearer token issued via the Capella Console. API keys can be
+    requested at POST /keys and exchanged for bearer tokens per the
+    documented authentication flow.
+  sources:
+  - openapi/capella-space-openapi.yml
