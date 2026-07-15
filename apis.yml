@@ -85,6 +85,8 @@ apis:
       - FN: Capella Space Support
         url: https://support.capellaspace.com/
 common:
+  - type: AgenticAccess
+    url: agentic-access/capella-space-agentic-access.yml
   - type: DomainSecurity
     url: security/capella-space-domain-security.yml
   - type: Authentication
