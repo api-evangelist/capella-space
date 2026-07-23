@@ -1,0 +1,134 @@
+openapi: 3.1.0
+info:
+  title: Capella Space Collects Orders API
+  description: 'Capella Space provides on-demand synthetic aperture radar (SAR) imagery
+
+    through a self-service Console and public API. This specification
+
+    consolidates publicly documented endpoints from the Capella Space
+
+    documentation (https://docs.capellaspace.com/) for tasking, repeat
+
+    tasking, orders, downloads, and API keys.
+
+
+    All requests authenticate with a bearer token obtained from the Capella
+
+    Console; long-lived API keys are managed via the /keys endpoint.
+
+
+    Best-effort hand-authored spec. Request and response payloads use
+
+    permissive schemas where the public docs do not enumerate the full
+
+    property set; consult the Capella documentation for production
+
+    integrations.
+
+    '
+  version: 1.0.0
+  contact:
+    name: Capella Space Support
+    url: https://support.capellaspace.com/
+servers:
+- url: https://api.capellaspace.com
+security:
+- bearerAuth: []
+tags:
+- name: Orders
+paths:
+  /orders:
+    post:
+      tags:
+      - Orders
+      summary: Submit an order
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrderRequest'
+      responses:
+        '201':
+          description: Order accepted.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+  /orders/review:
+    post:
+      tags:
+      - Orders
+      summary: Review an order before submission
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrderRequest'
+      responses:
+        '200':
+          description: Review summary including pricing.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /orders/{orderId}/download:
+    parameters:
+    - in: path
+      name: orderId
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Orders
+      summary: Get download URLs for a completed order
+      responses:
+        '200':
+          description: Signed download URLs.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: true
+components:
+  schemas:
+    Order:
+      type: object
+      properties:
+        orderId:
+          type: string
+        orderStatus:
+          type: string
+        userId:
+          type: string
+      additionalProperties: true
+    OrderRequest:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              granuleId:
+                type: string
+              collectionId:
+                type: string
+            additionalProperties: true
+      additionalProperties: true
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Bearer token issued via the Capella Console. API keys can be
+
+        requested at POST /keys and exchanged for bearer tokens per the
+
+        documented authentication flow.
+
+        '

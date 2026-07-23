@@ -1,0 +1,240 @@
+openapi: 3.1.0
+info:
+  title: Capella Space Collects Tasking API
+  description: 'Capella Space provides on-demand synthetic aperture radar (SAR) imagery
+
+    through a self-service Console and public API. This specification
+
+    consolidates publicly documented endpoints from the Capella Space
+
+    documentation (https://docs.capellaspace.com/) for tasking, repeat
+
+    tasking, orders, downloads, and API keys.
+
+
+    All requests authenticate with a bearer token obtained from the Capella
+
+    Console; long-lived API keys are managed via the /keys endpoint.
+
+
+    Best-effort hand-authored spec. Request and response payloads use
+
+    permissive schemas where the public docs do not enumerate the full
+
+    property set; consult the Capella documentation for production
+
+    integrations.
+
+    '
+  version: 1.0.0
+  contact:
+    name: Capella Space Support
+    url: https://support.capellaspace.com/
+servers:
+- url: https://api.capellaspace.com
+security:
+- bearerAuth: []
+tags:
+- name: Tasking
+paths:
+  /task:
+    post:
+      tags:
+      - Tasking
+      summary: Submit a tasking request
+      description: 'Submit a new tasking request against the Capella SAR constellation.
+
+        '
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaskingRequest'
+      responses:
+        '201':
+          description: Tasking request accepted.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskingRequest'
+  /task/{taskingrequestId}:
+    parameters:
+    - $ref: '#/components/parameters/TaskingRequestId'
+    get:
+      tags:
+      - Tasking
+      summary: Get a tasking request
+      responses:
+        '200':
+          description: Tasking request details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskingRequest'
+  /task/{taskingrequestId}/status:
+    parameters:
+    - $ref: '#/components/parameters/TaskingRequestId'
+    get:
+      tags:
+      - Tasking
+      summary: Get tasking request status
+      responses:
+        '200':
+          description: Status object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusObject'
+    post:
+      tags:
+      - Tasking
+      summary: Update tasking request status (review/approve/cancel)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StatusUpdate'
+      responses:
+        '200':
+          description: Updated status.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusObject'
+  /tasks/search:
+    post:
+      tags:
+      - Tasking
+      summary: Search tasking requests
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchQuery'
+      responses:
+        '200':
+          description: Search results.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/TaskingRequest'
+components:
+  schemas:
+    CollectionProperties:
+      type: object
+      properties:
+        collectionTier:
+          type: string
+          enum:
+          - urgent
+          - priority
+          - standard
+          - flexible
+        productCategory:
+          type: string
+        windowOpen:
+          type: string
+          format: date-time
+        windowClose:
+          type: string
+          format: date-time
+        offNadirMin:
+          type: number
+        offNadirMax:
+          type: number
+        lookDirection:
+          type: string
+          enum:
+          - left
+          - right
+          - either
+        polarization:
+          type: string
+          enum:
+          - HH
+          - VV
+          - HV
+          - VH
+      additionalProperties: true
+    TaskingRequest:
+      type: object
+      properties:
+        taskingrequestId:
+          type: string
+        type:
+          type: string
+          default: Feature
+        geometry:
+          $ref: '#/components/schemas/GeoJSON'
+        properties:
+          $ref: '#/components/schemas/CollectionProperties'
+      additionalProperties: true
+    StatusObject:
+      type: object
+      properties:
+        status:
+          type: string
+        statusHistory:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+      additionalProperties: true
+    SearchQuery:
+      type: object
+      properties:
+        bbox:
+          type: array
+          items:
+            type: number
+        datetime:
+          type: string
+        limit:
+          type: integer
+        sortby:
+          type: string
+      additionalProperties: true
+    GeoJSON:
+      type: object
+      description: GeoJSON Geometry object.
+      additionalProperties: true
+    StatusUpdate:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - review
+          - accepted
+          - rejected
+          - cancelled
+          - completed
+        comments:
+          type: string
+      additionalProperties: true
+  parameters:
+    TaskingRequestId:
+      in: path
+      name: taskingrequestId
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Bearer token issued via the Capella Console. API keys can be
+
+        requested at POST /keys and exchanged for bearer tokens per the
+
+        documented authentication flow.
+
+        '

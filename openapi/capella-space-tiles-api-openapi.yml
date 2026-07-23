@@ -1,0 +1,75 @@
+openapi: 3.1.0
+info:
+  title: Capella Space Collects Tiles API
+  description: 'Capella Space provides on-demand synthetic aperture radar (SAR) imagery
+
+    through a self-service Console and public API. This specification
+
+    consolidates publicly documented endpoints from the Capella Space
+
+    documentation (https://docs.capellaspace.com/) for tasking, repeat
+
+    tasking, orders, downloads, and API keys.
+
+
+    All requests authenticate with a bearer token obtained from the Capella
+
+    Console; long-lived API keys are managed via the /keys endpoint.
+
+
+    Best-effort hand-authored spec. Request and response payloads use
+
+    permissive schemas where the public docs do not enumerate the full
+
+    property set; consult the Capella documentation for production
+
+    integrations.
+
+    '
+  version: 1.0.0
+  contact:
+    name: Capella Space Support
+    url: https://support.capellaspace.com/
+servers:
+- url: https://api.capellaspace.com
+security:
+- bearerAuth: []
+tags:
+- name: Tiles
+paths:
+  /tiles/list/{taskingrequestId}:
+    parameters:
+    - $ref: '#/components/parameters/TaskingRequestId'
+    get:
+      tags:
+      - Tiles
+      summary: List tiles for a tasking request
+      responses:
+        '200':
+          description: Tile list.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: true
+components:
+  parameters:
+    TaskingRequestId:
+      in: path
+      name: taskingrequestId
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Bearer token issued via the Capella Console. API keys can be
+
+        requested at POST /keys and exchanged for bearer tokens per the
+
+        documented authentication flow.
+
+        '
