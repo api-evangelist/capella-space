@@ -2,7 +2,20 @@ aid: capella-space
 url: https://raw.githubusercontent.com/api-evangelist/capella-space/refs/heads/main/apis.yml
 name: Capella Space
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: free
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Free · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/capella-space.png
 description: Capella Space operates a constellation of synthetic aperture radar (SAR) satellites and provides
   on-demand, high-resolution Earth-observation imagery through a self-service Console and public API.
   Customers can task the constellation with 15-minute scheduling cycles, search a STAC-based catalog of
@@ -22,68 +35,130 @@ created: '2026-05-23'
 modified: '2026-05-23'
 specificationVersion: '0.19'
 apis:
-  - aid: capella-space:capella-tasking-api
-    name: Capella Space Tasking API
-    description: The Capella Tasking API lets customers submit imagery tasking requests against the
-      Capella SAR constellation, configure collect parameters (geometry, resolution, polarization,
-      look direction, off-nadir angle), monitor tasking and collect statuses, and manage repeat
-      tasking. Supports 15-minute scheduling cycles and flexible collection tiers.
-    humanURL: https://docs.capellaspace.com/api/tasking/
-    baseURL: https://api.capellaspace.com
-    tags:
-      - Tasking
-      - SAR
-      - Collects
-      - Scheduling
-    properties:
-      - type: Documentation
-        url: https://docs.capellaspace.com/api/tasking/
-      - type: Authentication
-        url: https://docs.capellaspace.com/
-      - type: Signup
-        url: https://console.capellaspace.com/
-    contact:
-      - FN: Capella Space Support
-        url: https://support.capellaspace.com/
-  - aid: capella-space:capella-catalog-api
-    name: Capella Space Catalog API
-    description: The Capella Catalog API is a STAC-compliant search interface over the archive of
-      SAR collects. Clients query the catalog by geometry, time, product type, resolution, and
-      polarization to discover scenes available for ordering and download.
-    humanURL: https://docs.capellaspace.com/api/catalog/
-    baseURL: https://api.capellaspace.com
-    tags:
-      - Catalog
-      - STAC
-      - Search
-      - Discovery
-    properties:
-      - type: Documentation
-        url: https://docs.capellaspace.com/api/catalog/
-      - type: Authentication
-        url: https://docs.capellaspace.com/
-    contact:
-      - FN: Capella Space Support
-        url: https://support.capellaspace.com/
-  - aid: capella-space:capella-orders-api
-    name: Capella Space Orders API
-    description: The Capella Orders API submits and tracks orders for SAR products, manages order
-      lifecycle, and returns signed download URLs for completed imagery via endpoints such as
-      GET /orders/{orderId}/download.
-    humanURL: https://docs.capellaspace.com/accessing-data/ordering-and-downloading/
-    baseURL: https://api.capellaspace.com
-    tags:
-      - Orders
-      - Download
-      - Fulfillment
-    properties:
-      - type: Documentation
-        url: https://docs.capellaspace.com/accessing-data/ordering-and-downloading/
-      - type: Authentication
-        url: https://docs.capellaspace.com/
-    contact:
-      - FN: Capella Space Support
-        url: https://support.capellaspace.com/
+- aid: capella-space:capella-tasking-api
+  name: Capella Space Tasking API
+  description: >-
+    The Capella Tasking API lets customers submit imagery tasking requests against the Capella SAR constellation,
+    configure collect parameters (geometry, resolution, polarization, look direction, off-nadir angle),
+    monitor tasking and collect statuses, and manage repeat tasking. Supports 15-minute scheduling cycles
+    and flexible collection tiers.
+  humanURL: https://docs.capellaspace.com/api/tasking/
+  baseURL: https://api.capellaspace.com
+  tags:
+  - Tasking
+  - SAR
+  - Collects
+  - Scheduling
+  properties:
+  - type: Documentation
+    url: https://docs.capellaspace.com/api/tasking/
+  - type: Authentication
+    url: https://docs.capellaspace.com/
+  - type: Signup
+    url: https://console.capellaspace.com/
+  contact:
+  - FN: Capella Space Support
+    url: https://support.capellaspace.com/
+- aid: capella-space:capella-catalog-api
+  name: Capella Space Catalog API
+  description: >-
+    The Capella Catalog API is a STAC-compliant search interface over the archive of SAR collects. Clients
+    query the catalog by geometry, time, product type, resolution, and polarization to discover scenes
+    available for ordering and download.
+  humanURL: https://docs.capellaspace.com/api/catalog/
+  baseURL: https://api.capellaspace.com
+  tags:
+  - Catalog
+  - STAC
+  - Search
+  - Discovery
+  properties:
+  - type: Documentation
+    url: https://docs.capellaspace.com/api/catalog/
+  - type: Authentication
+    url: https://docs.capellaspace.com/
+  contact:
+  - FN: Capella Space Support
+    url: https://support.capellaspace.com/
+- aid: capella-space:capella-orders-api
+  name: Capella Space Orders API
+  description: >-
+    The Capella Orders API submits and tracks orders for SAR products, manages order lifecycle, and returns
+    signed download URLs for completed imagery via endpoints such as GET /orders/{orderId}/download.
+  humanURL: https://docs.capellaspace.com/accessing-data/ordering-and-downloading/
+  baseURL: https://api.capellaspace.com
+  tags:
+  - Orders
+  - Download
+  - Fulfillment
+  properties:
+  - type: Documentation
+    url: https://docs.capellaspace.com/accessing-data/ordering-and-downloading/
+  - type: Authentication
+    url: https://docs.capellaspace.com/
+  contact:
+  - FN: Capella Space Support
+    url: https://support.capellaspace.com/
+- aid: capella-space:capella-space-collects-api
+  name: Capella Space Collects API
+  description: The Collects API from Capella Space — 1 operation(s) for collects.
+  humanURL: https://docs.capellaspace.com/api/tasking/
+  baseURL: https://api.capellaspace.com
+  tags:
+  - Collects
+  properties:
+  - type: OpenAPI
+    url: openapi/capella-space-collects-api-openapi.yml
+- aid: capella-space:capella-space-keys-api
+  name: Capella Space Keys API
+  description: The Keys API from Capella Space — 1 operation(s) for keys.
+  humanURL: https://docs.capellaspace.com/api/tasking/
+  baseURL: https://api.capellaspace.com
+  tags:
+  - Keys
+  properties:
+  - type: OpenAPI
+    url: openapi/capella-space-keys-api-openapi.yml
+- aid: capella-space:capella-space-orders-api
+  name: Capella Space Orders API
+  description: The Orders API from Capella Space — 3 operation(s) for orders.
+  humanURL: https://docs.capellaspace.com/api/tasking/
+  baseURL: https://api.capellaspace.com
+  tags:
+  - Orders
+  properties:
+  - type: OpenAPI
+    url: openapi/capella-space-orders-api-openapi.yml
+- aid: capella-space:capella-space-repeatrequests-api
+  name: Capella Space RepeatRequests API
+  description: The RepeatRequests API from Capella Space — 4 operation(s) for repeatrequests.
+  humanURL: https://docs.capellaspace.com/api/tasking/
+  baseURL: https://api.capellaspace.com
+  tags:
+  - RepeatRequests
+  properties:
+  - type: OpenAPI
+    url: openapi/capella-space-repeatrequests-api-openapi.yml
+- aid: capella-space:capella-space-tasking-api
+  name: Capella Space Tasking API
+  description: The Tasking API from Capella Space — 4 operation(s) for tasking.
+  humanURL: https://docs.capellaspace.com/api/tasking/
+  baseURL: https://api.capellaspace.com
+  tags:
+  - Tasking
+  properties:
+  - type: OpenAPI
+    url: openapi/capella-space-tasking-api-openapi.yml
+- aid: capella-space:capella-space-tiles-api
+  name: Capella Space Tiles API
+  description: The Tiles API from Capella Space — 1 operation(s) for tiles.
+  humanURL: https://docs.capellaspace.com/api/tasking/
+  baseURL: https://api.capellaspace.com
+  tags:
+  - Tiles
+  properties:
+  - type: OpenAPI
+    url: openapi/capella-space-tiles-api-openapi.yml
 common:
   - type: AgenticAccess
     url: agentic-access/capella-space-agentic-access.yml
