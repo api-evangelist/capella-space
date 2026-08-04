@@ -1,0 +1,24 @@
+{
+  "provider": "capella-space",
+  "sources": [
+    "capella-space-collects-api-openapi.yml",
+    "capella-space-keys-api-openapi.yml",
+    "capella-space-orders-api-openapi.yml",
+    "capella-space-repeatrequests-api-openapi.yml",
+    "capella-space-tasking-api-openapi.yml",
+    "capella-space-tiles-api-openapi.yml"
+  ],
+  "outputs": [
+    "capella-space-collects-api-openapi.yml",
+    "capella-space-keys-api-openapi.yml",
+    "capella-space-orders-api-openapi.yml",
+    "capella-space-repeatrequests-api-openapi.yml",
+    "capella-space-tasking-api-openapi.yml",
+    "capella-space-tiles-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
