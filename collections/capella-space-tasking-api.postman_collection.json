@@ -1,0 +1,542 @@
+{
+  "item": [
+    {
+      "id": "58fd9bdd-6114-4f48-ba33-fa14fffb4d71",
+      "name": "Tasking",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b046f153-01ee-4050-85ff-6bb532c78426",
+          "name": "Submit a tasking request",
+          "request": {
+            "name": "Submit a tasking request",
+            "description": {
+              "content": "Submit a new tasking request against the Capella SAR constellation.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "task"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"taskingrequestId\": \"<string>\",\n  \"type\": \"Feature\",\n  \"geometry\": {\n    \"key_0\": false\n  },\n  \"properties\": {\n    \"collectionTier\": \"<string>\",\n    \"productCategory\": \"<string>\",\n    \"windowOpen\": \"<dateTime>\",\n    \"windowClose\": \"<dateTime>\",\n    \"offNadirMin\": \"<number>\",\n    \"offNadirMax\": \"<number>\",\n    \"lookDirection\": \"<string>\",\n    \"polarization\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c274e3bd-5ab0-42ad-a55d-aeefb4100854",
+              "name": "Tasking request accepted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "task"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"taskingrequestId\": \"<string>\",\n  \"type\": \"Feature\",\n  \"geometry\": {\n    \"key_0\": false,\n    \"key_1\": \"string\"\n  },\n  \"properties\": {\n    \"collectionTier\": \"urgent\",\n    \"productCategory\": \"string\",\n    \"windowOpen\": \"1983-04-30T23:23:57.967Z\",\n    \"windowClose\": \"1995-09-17T01:20:00.054Z\",\n    \"offNadirMin\": 7646.311400529739,\n    \"offNadirMax\": 1193.41433474349,\n    \"lookDirection\": \"left\",\n    \"polarization\": \"VV\",\n    \"key_0\": 654\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"taskingrequestId\": \"string\",\n  \"type\": \"Feature\",\n  \"geometry\": {\n    \"key_0\": 3638.79323957938,\n    \"key_1\": 6661.597771583217,\n    \"key_2\": \"string\",\n    \"key_3\": 2103.3499670286515\n  },\n  \"properties\": {\n    \"collectionTier\": \"flexible\",\n    \"productCategory\": \"string\",\n    \"windowOpen\": \"1999-02-21T10:25:36.287Z\",\n    \"windowClose\": \"1948-05-15T11:26:16.421Z\",\n    \"offNadirMin\": 5957.8407932825585,\n    \"offNadirMax\": 5310.085678514879,\n    \"lookDirection\": \"right\",\n    \"polarization\": \"VV\"\n  },\n  \"key_0\": 9390.278831296162,\n  \"key_1\": false,\n  \"key_2\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "aa9ab1a0-a10e-4ac3-971d-dcc971b122cc",
+          "name": "Get a tasking request",
+          "request": {
+            "name": "Get a tasking request",
+            "description": {},
+            "url": {
+              "path": [
+                "task",
+                ":taskingrequestId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "taskingrequestId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fd793ba5-782b-4e1f-abbd-b5b696daf5cc",
+              "name": "Tasking request details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "task",
+                    ":taskingrequestId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "taskingrequestId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"taskingrequestId\": \"string\",\n  \"type\": \"Feature\",\n  \"geometry\": {\n    \"key_0\": 3638.79323957938,\n    \"key_1\": 6661.597771583217,\n    \"key_2\": \"string\",\n    \"key_3\": 2103.3499670286515\n  },\n  \"properties\": {\n    \"collectionTier\": \"flexible\",\n    \"productCategory\": \"string\",\n    \"windowOpen\": \"1999-02-21T10:25:36.287Z\",\n    \"windowClose\": \"1948-05-15T11:26:16.421Z\",\n    \"offNadirMin\": 5957.8407932825585,\n    \"offNadirMax\": 5310.085678514879,\n    \"lookDirection\": \"right\",\n    \"polarization\": \"VV\"\n  },\n  \"key_0\": 9390.278831296162,\n  \"key_1\": false,\n  \"key_2\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "607fecb5-7602-421b-b89b-95990e2f05b0",
+          "name": "Get tasking request status",
+          "request": {
+            "name": "Get tasking request status",
+            "description": {},
+            "url": {
+              "path": [
+                "task",
+                ":taskingrequestId",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "taskingrequestId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fe31175b-18f3-4b25-9c83-16fee098a10c",
+              "name": "Status object.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "task",
+                    ":taskingrequestId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "taskingrequestId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"string\",\n  \"statusHistory\": [\n    {\n      \"key_0\": 200,\n      \"key_1\": 6895.072111020713\n    },\n    {\n      \"key_0\": \"string\"\n    }\n  ],\n  \"key_0\": 4950.658880019967\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e076f191-63a7-4fbb-b07b-5ba06e0a35a0",
+          "name": "Update tasking request status (review/approve/cancel)",
+          "request": {
+            "name": "Update tasking request status (review/approve/cancel)",
+            "description": {},
+            "url": {
+              "path": [
+                "task",
+                ":taskingrequestId",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "taskingrequestId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"<string>\",\n  \"comments\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d2e68964-2c2c-49c1-bd41-8497cf601e0a",
+              "name": "Updated status.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "task",
+                    ":taskingrequestId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "taskingrequestId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"<string>\",\n  \"comments\": \"<string>\",\n  \"key_0\": 4535,\n  \"key_1\": true,\n  \"key_2\": \"string\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"string\",\n  \"statusHistory\": [\n    {\n      \"key_0\": 200,\n      \"key_1\": 6895.072111020713\n    },\n    {\n      \"key_0\": \"string\"\n    }\n  ],\n  \"key_0\": 4950.658880019967\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "df4eaf40-6069-417f-ae16-4dad18355173",
+          "name": "Search tasking requests",
+          "request": {
+            "name": "Search tasking requests",
+            "description": {},
+            "url": {
+              "path": [
+                "tasks",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"bbox\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"datetime\": \"<string>\",\n  \"limit\": \"<integer>\",\n  \"sortby\": \"<string>\",\n  \"key_0\": 4027,\n  \"key_1\": 7846.904694318334,\n  \"key_2\": 1204,\n  \"key_3\": \"string\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "751a26b5-0680-43fd-9556-5cb0e30f219c",
+              "name": "Search results.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tasks",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"bbox\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"datetime\": \"<string>\",\n  \"limit\": \"<integer>\",\n  \"sortby\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"taskingrequestId\": \"string\",\n      \"type\": \"Feature\",\n      \"geometry\": {\n        \"key_0\": 1711,\n        \"key_1\": 9652.888263961902,\n        \"key_2\": true,\n        \"key_3\": 7078.80546517686\n      },\n      \"properties\": {\n        \"collectionTier\": \"flexible\",\n        \"productCategory\": \"string\",\n        \"windowOpen\": \"1997-06-04T21:45:27.283Z\",\n        \"windowClose\": \"1994-09-06T03:18:34.196Z\",\n        \"offNadirMin\": 7627.377590230885,\n        \"offNadirMax\": 7079.307173495338,\n        \"lookDirection\": \"left\",\n        \"polarization\": \"VV\"\n      }\n    },\n    {\n      \"taskingrequestId\": \"string\",\n      \"type\": \"Feature\",\n      \"geometry\": {\n        \"key_0\": true,\n        \"key_1\": false\n      },\n      \"properties\": {\n        \"collectionTier\": \"flexible\",\n        \"productCategory\": \"string\",\n        \"windowOpen\": \"1958-06-05T16:13:27.315Z\",\n        \"windowClose\": \"1973-05-05T22:34:56.283Z\",\n        \"offNadirMin\": 1607.9750156823902,\n        \"offNadirMax\": 5194.633186895253,\n        \"lookDirection\": \"right\",\n        \"polarization\": \"HV\",\n        \"key_0\": false\n      },\n      \"key_0\": 6038.0431943336835,\n      \"key_1\": 9213\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.capellaspace.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "1b968073-be43-4ce4-9630-d0a245162b18",
+    "name": "Capella Space Collects Tasking API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Capella Space provides on-demand synthetic aperture radar (SAR) imagery\nthrough a self-service Console and public API. This specification\nconsolidates publicly documented endpoints from the Capella Space\ndocumentation (https://docs.capellaspace.com/) for tasking, repeat\ntasking, orders, downloads, and API keys.\n\nAll requests authenticate with a bearer token obtained from the Capella\nConsole; long-lived API keys are managed via the /keys endpoint.\n\nBest-effort hand-authored spec. Request and response payloads use\npermissive schemas where the public docs do not enumerate the full\nproperty set; consult the Capella documentation for production\nintegrations.\n\n\nContact Support:\n Name: Capella Space Support",
+      "type": "text/plain"
+    }
+  }
+}

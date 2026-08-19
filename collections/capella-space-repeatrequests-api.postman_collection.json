@@ -1,0 +1,539 @@
+{
+  "item": [
+    {
+      "id": "f710ac92-8746-4976-8652-32d68fbe2951",
+      "name": "RepeatRequests",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a91d25a5-c912-40f7-98e2-725a5aedf324",
+          "name": "Submit a repeat tasking request",
+          "request": {
+            "name": "Submit a repeat tasking request",
+            "description": {},
+            "url": {
+              "path": [
+                "repeat-requests"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"repeatrequestId\": \"<string>\",\n  \"type\": \"Feature\",\n  \"geometry\": {\n    \"key_0\": 5211.869578941963\n  },\n  \"properties\": {\n    \"collectionTier\": \"<string>\",\n    \"productCategory\": \"<string>\",\n    \"windowOpen\": \"<dateTime>\",\n    \"windowClose\": \"<dateTime>\",\n    \"offNadirMin\": \"<number>\",\n    \"offNadirMax\": \"<number>\",\n    \"lookDirection\": \"<string>\",\n    \"polarization\": \"<string>\",\n    \"repetitionProperties\": {\n      \"repeatStart\": \"<dateTime>\",\n      \"repeatEnd\": \"<dateTime>\",\n      \"repetitionInterval\": \"<integer>\",\n      \"repetitionCount\": \"<integer>\"\n    }\n  },\n  \"key_0\": 2136,\n  \"key_1\": \"string\",\n  \"key_2\": \"string\",\n  \"key_3\": 1547.7383540020774,\n  \"key_4\": 8264\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a270943c-12dd-4854-90c4-c4abe4b2fa88",
+              "name": "Repeat request accepted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "repeat-requests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"repeatrequestId\": \"<string>\",\n  \"type\": \"Feature\",\n  \"geometry\": {\n    \"key_0\": 2179.7389938430465\n  },\n  \"properties\": {\n    \"collectionTier\": \"priority\",\n    \"productCategory\": \"string\",\n    \"windowOpen\": \"1986-09-05T19:55:06.199Z\",\n    \"windowClose\": \"2000-05-04T00:37:36.975Z\",\n    \"offNadirMin\": 771.2721810773604,\n    \"offNadirMax\": 8250.518877498536,\n    \"lookDirection\": \"right\",\n    \"polarization\": \"HH\",\n    \"repetitionProperties\": {\n      \"repeatStart\": \"<dateTime>\",\n      \"repeatEnd\": \"<dateTime>\",\n      \"repetitionInterval\": \"<integer>\",\n      \"repetitionCount\": \"<integer>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"repeatrequestId\": \"string\",\n  \"type\": \"Feature\",\n  \"geometry\": {\n    \"key_0\": 554,\n    \"key_1\": false\n  },\n  \"properties\": {\n    \"collectionTier\": \"standard\",\n    \"productCategory\": \"string\",\n    \"windowOpen\": \"2014-04-12T02:53:43.803Z\",\n    \"windowClose\": \"1961-03-28T15:51:32.727Z\",\n    \"offNadirMin\": 4983.232272389418,\n    \"offNadirMax\": 7193.34560179949,\n    \"lookDirection\": \"right\",\n    \"polarization\": \"VH\",\n    \"repetitionProperties\": {\n      \"repeatStart\": \"1978-07-11T09:41:50.379Z\",\n      \"repeatEnd\": \"1954-02-11T04:54:01.830Z\",\n      \"repetitionInterval\": 1198,\n      \"repetitionCount\": 3762\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fd6f394a-114e-492c-86f7-84d022450309",
+          "name": "Get a repeat tasking request",
+          "request": {
+            "name": "Get a repeat tasking request",
+            "description": {},
+            "url": {
+              "path": [
+                "repeat-requests",
+                ":repeatrequestId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "repeatrequestId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9cf80671-7d51-4e74-806e-11fd2e1a2a84",
+              "name": "Repeat request details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "repeat-requests",
+                    ":repeatrequestId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "repeatrequestId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"repeatrequestId\": \"string\",\n  \"type\": \"Feature\",\n  \"geometry\": {\n    \"key_0\": 554,\n    \"key_1\": false\n  },\n  \"properties\": {\n    \"collectionTier\": \"standard\",\n    \"productCategory\": \"string\",\n    \"windowOpen\": \"2014-04-12T02:53:43.803Z\",\n    \"windowClose\": \"1961-03-28T15:51:32.727Z\",\n    \"offNadirMin\": 4983.232272389418,\n    \"offNadirMax\": 7193.34560179949,\n    \"lookDirection\": \"right\",\n    \"polarization\": \"VH\",\n    \"repetitionProperties\": {\n      \"repeatStart\": \"1978-07-11T09:41:50.379Z\",\n      \"repeatEnd\": \"1954-02-11T04:54:01.830Z\",\n      \"repetitionInterval\": 1198,\n      \"repetitionCount\": 3762\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "222c2abd-b0dc-4b9f-b0a1-dc4a3cd5cd6b",
+          "name": "Get repeat request status",
+          "request": {
+            "name": "Get repeat request status",
+            "description": {},
+            "url": {
+              "path": [
+                "repeat-requests",
+                ":repeatrequestId",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "repeatrequestId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b50cf3ed-2065-43af-8bf7-d52cd6a35f25",
+              "name": "Status object.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "repeat-requests",
+                    ":repeatrequestId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "repeatrequestId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"string\",\n  \"statusHistory\": [\n    {\n      \"key_0\": 6674,\n      \"key_1\": false\n    },\n    {\n      \"key_0\": 1324.4172241417273,\n      \"key_1\": 8729.466172435934,\n      \"key_2\": 3729.793666425508,\n      \"key_3\": true,\n      \"key_4\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7bbc542e-3e14-4fb0-a7a5-f67082fca3ae",
+          "name": "Update repeat request status (review/approve/cancel)",
+          "request": {
+            "name": "Update repeat request status (review/approve/cancel)",
+            "description": {},
+            "url": {
+              "path": [
+                "repeat-requests",
+                ":repeatrequestId",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "repeatrequestId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"<string>\",\n  \"comments\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d7229d4e-71ae-4d96-bed8-5c3256b3a479",
+              "name": "Updated status.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "repeat-requests",
+                    ":repeatrequestId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "repeatrequestId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"<string>\",\n  \"comments\": \"<string>\",\n  \"key_0\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"string\",\n  \"statusHistory\": [\n    {\n      \"key_0\": 6674,\n      \"key_1\": false\n    },\n    {\n      \"key_0\": 1324.4172241417273,\n      \"key_1\": 8729.466172435934,\n      \"key_2\": 3729.793666425508,\n      \"key_3\": true,\n      \"key_4\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2cf67843-1ba5-49f5-b667-0f3d570aeb50",
+          "name": "Search repeat tasking requests",
+          "request": {
+            "name": "Search repeat tasking requests",
+            "description": {},
+            "url": {
+              "path": [
+                "repeat-requests",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"bbox\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"datetime\": \"<string>\",\n  \"limit\": \"<integer>\",\n  \"sortby\": \"<string>\",\n  \"key_0\": false,\n  \"key_1\": false,\n  \"key_2\": 7852\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "114c0b9a-8a59-44e6-bbfe-abb99157a6f7",
+              "name": "Search results.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "repeat-requests",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"bbox\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"datetime\": \"<string>\",\n  \"limit\": \"<integer>\",\n  \"sortby\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"repeatrequestId\": \"string\",\n      \"type\": \"Feature\",\n      \"geometry\": {\n        \"key_0\": 1661.504184809749,\n        \"key_1\": 3012\n      },\n      \"properties\": {\n        \"collectionTier\": \"priority\",\n        \"productCategory\": \"string\",\n        \"windowOpen\": \"1959-10-22T07:29:22.336Z\",\n        \"windowClose\": \"2005-03-20T10:28:16.868Z\",\n        \"offNadirMin\": 6368.783620531655,\n        \"offNadirMax\": 8025.192562203576,\n        \"lookDirection\": \"right\",\n        \"polarization\": \"VH\",\n        \"repetitionProperties\": {\n          \"repeatStart\": \"2008-10-19T23:23:57.869Z\",\n          \"repeatEnd\": \"1998-07-26T13:01:11.172Z\",\n          \"repetitionInterval\": 6213,\n          \"repetitionCount\": 3843\n        }\n      },\n      \"key_0\": 3914.869032199713,\n      \"key_1\": \"string\",\n      \"key_2\": \"string\"\n    },\n    {\n      \"repeatrequestId\": \"string\",\n      \"type\": \"Feature\",\n      \"geometry\": {\n        \"key_0\": 600.5685363323621,\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      },\n      \"properties\": {\n        \"collectionTier\": \"priority\",\n        \"productCategory\": \"string\",\n        \"windowOpen\": \"1966-11-15T10:13:00.865Z\",\n        \"windowClose\": \"1966-07-18T06:34:09.410Z\",\n        \"offNadirMin\": 6699.010465429574,\n        \"offNadirMax\": 8519.40376466171,\n        \"lookDirection\": \"either\",\n        \"polarization\": \"VH\",\n        \"repetitionProperties\": {\n          \"repeatStart\": \"1965-07-14T18:28:03.098Z\",\n          \"repeatEnd\": \"1997-10-17T10:46:30.153Z\",\n          \"repetitionInterval\": 6544,\n          \"repetitionCount\": 4788\n        },\n        \"key_0\": \"string\"\n      },\n      \"key_0\": 5924,\n      \"key_1\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.capellaspace.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a2338772-244c-4dd3-a104-8707a7ebe7c3",
+    "name": "Capella Space Collects RepeatRequests API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Capella Space provides on-demand synthetic aperture radar (SAR) imagery\nthrough a self-service Console and public API. This specification\nconsolidates publicly documented endpoints from the Capella Space\ndocumentation (https://docs.capellaspace.com/) for tasking, repeat\ntasking, orders, downloads, and API keys.\n\nAll requests authenticate with a bearer token obtained from the Capella\nConsole; long-lived API keys are managed via the /keys endpoint.\n\nBest-effort hand-authored spec. Request and response payloads use\npermissive schemas where the public docs do not enumerate the full\nproperty set; consult the Capella documentation for production\nintegrations.\n\n\nContact Support:\n Name: Capella Space Support",
+      "type": "text/plain"
+    }
+  }
+}

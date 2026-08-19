@@ -1,0 +1,112 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Capella Space Collects Tasking API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tasking",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Submit a tasking request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.capellaspace.com/task",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit a new tasking request against the Capella SAR constellation.\n"
+        },
+        {
+          "info": {
+            "name": "Get a tasking request",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.capellaspace.com/task/:taskingrequestId",
+            "params": [
+              {
+                "name": "taskingrequestId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a tasking request"
+        },
+        {
+          "info": {
+            "name": "Get tasking request status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.capellaspace.com/task/:taskingrequestId/status",
+            "params": [
+              {
+                "name": "taskingrequestId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get tasking request status"
+        },
+        {
+          "info": {
+            "name": "Update tasking request status (review/approve/cancel)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.capellaspace.com/task/:taskingrequestId/status",
+            "params": [
+              {
+                "name": "taskingrequestId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update tasking request status (review/approve/cancel)"
+        },
+        {
+          "info": {
+            "name": "Search tasking requests",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.capellaspace.com/tasks/search",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Search tasking requests"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

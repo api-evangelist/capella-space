@@ -1,0 +1,136 @@
+{
+  "item": [
+    {
+      "id": "248e566a-5de6-4e07-bb78-1f30bc0db32f",
+      "name": "Collects",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "27ed5a5b-0f07-420b-8293-b85e80f544cd",
+          "name": "List collects for a tasking request",
+          "request": {
+            "name": "List collects for a tasking request",
+            "description": {},
+            "url": {
+              "path": [
+                "collects",
+                "list",
+                ":taskingrequestId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "taskingrequestId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5e37112c-f813-46ad-83c8-caa61b059d97",
+              "name": "Collect list.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collects",
+                    "list",
+                    ":taskingrequestId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "taskingrequestId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key_0\": 7971.421562425408,\n    \"key_1\": 2029,\n    \"key_2\": false\n  },\n  {\n    \"key_0\": false,\n    \"key_1\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.capellaspace.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "43699dc7-8eed-44a5-9768-e45583f06533",
+    "name": "Capella Space Collects API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Capella Space provides on-demand synthetic aperture radar (SAR) imagery\nthrough a self-service Console and public API. This specification\nconsolidates publicly documented endpoints from the Capella Space\ndocumentation (https://docs.capellaspace.com/) for tasking, repeat\ntasking, orders, downloads, and API keys.\n\nAll requests authenticate with a bearer token obtained from the Capella\nConsole; long-lived API keys are managed via the /keys endpoint.\n\nBest-effort hand-authored spec. Request and response payloads use\npermissive schemas where the public docs do not enumerate the full\nproperty set; consult the Capella documentation for production\nintegrations.\n\n\nContact Support:\n Name: Capella Space Support",
+      "type": "text/plain"
+    }
+  }
+}

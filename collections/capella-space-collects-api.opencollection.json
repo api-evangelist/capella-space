@@ -1,0 +1,42 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Capella Space Collects API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Collects",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List collects for a tasking request",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.capellaspace.com/collects/list/:taskingrequestId",
+            "params": [
+              {
+                "name": "taskingrequestId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List collects for a tasking request"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
