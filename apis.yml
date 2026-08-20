@@ -88,6 +88,10 @@ apis:
   humanURL: https://docs.capellaspace.com/accessing-data/ordering-and-downloading/
   baseURL: https://api.capellaspace.com
   tags:
+  - Order
+  - Downloads
+  - Fulfillment
+  tags_raw:
   - Orders
   - Download
   - Fulfillment
@@ -125,6 +129,8 @@ apis:
   humanURL: https://docs.capellaspace.com/api/tasking/
   baseURL: https://api.capellaspace.com
   tags:
+  - Order
+  tags_raw:
   - Orders
   properties:
   - type: OpenAPI
