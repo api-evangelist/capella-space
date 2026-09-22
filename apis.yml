@@ -34,6 +34,9 @@ description: Capella Space operates a constellation of synthetic aperture radar 
   Customers can task the constellation with 15-minute scheduling cycles, search a STAC-based catalog of
   archive collects, place orders, and download imagery products for defense, intelligence, maritime,
   energy, insurance, and analytics use cases.
+x-docs-platform: swagger-ui
+x-docs-platform-confidence: medium
+x-docs-platform-checked: 2026-09-21
 tags:
   - Synthetic Aperture Radar
   - SAR
