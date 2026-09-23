@@ -1,31 +1,9 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Capella Space Collects Orders API
+  title: Capella Space Orders API
   description: 'Capella Space provides on-demand synthetic aperture radar (SAR) imagery
 
-    through a self-service Console and public API. This specification
-
-    consolidates publicly documented endpoints from the Capella Space
-
-    documentation (https://docs.capellaspace.com/) for tasking, repeat
-
-    tasking, orders, downloads, and API keys.
-
-
-    All requests authenticate with a bearer token obtained from the Capella
-
-    Console; long-lived API keys are managed via the /keys endpoint.
-
-
-    Best-effort hand-authored spec. Request and response payloads use
-
-    permissive schemas where the public docs do not enumerate the full
-
-    property set; consult the Capella documentation for production
-
-    integrations.
-
-    '
+    through a self-service Console and public API.'
   version: 1.0.0
   contact:
     name: Capella Space Support
@@ -55,6 +33,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Order'
+      operationId: postOrders
+      x-operation-id-source: derived
   /orders/review:
     post:
       tags:
@@ -74,6 +54,8 @@ paths:
               schema:
                 type: object
                 additionalProperties: true
+      operationId: postOrdersReview
+      x-operation-id-source: derived
   /orders/{orderId}/download:
     parameters:
     - in: path
@@ -95,6 +77,8 @@ paths:
                 items:
                   type: object
                   additionalProperties: true
+      operationId: getOrdersByOrderIdDownload
+      x-operation-id-source: derived
 components:
   schemas:
     Order:

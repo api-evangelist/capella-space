@@ -1,12 +1,7 @@
 {
   "provider": "capella-space",
   "sources": [
-    "capella-space-collects-api-openapi.yml",
-    "capella-space-keys-api-openapi.yml",
-    "capella-space-orders-api-openapi.yml",
-    "capella-space-repeatrequests-api-openapi.yml",
-    "capella-space-tasking-api-openapi.yml",
-    "capella-space-tiles-api-openapi.yml"
+    "_original/capella-space-openapi.yml"
   ],
   "outputs": [
     "capella-space-collects-api-openapi.yml",
@@ -19,6 +14,17 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "capella-space-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "capella-space-collects-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "capella-space-keys-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "capella-space-orders-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "capella-space-repeatrequests-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "capella-space-tasking-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "capella-space-tiles-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

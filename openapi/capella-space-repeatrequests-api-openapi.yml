@@ -1,31 +1,9 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Capella Space Collects RepeatRequests API
+  title: Capella Space Repeat Requests API
   description: 'Capella Space provides on-demand synthetic aperture radar (SAR) imagery
 
-    through a self-service Console and public API. This specification
-
-    consolidates publicly documented endpoints from the Capella Space
-
-    documentation (https://docs.capellaspace.com/) for tasking, repeat
-
-    tasking, orders, downloads, and API keys.
-
-
-    All requests authenticate with a bearer token obtained from the Capella
-
-    Console; long-lived API keys are managed via the /keys endpoint.
-
-
-    Best-effort hand-authored spec. Request and response payloads use
-
-    permissive schemas where the public docs do not enumerate the full
-
-    property set; consult the Capella documentation for production
-
-    integrations.
-
-    '
+    through a self-service Console and public API.'
   version: 1.0.0
   contact:
     name: Capella Space Support
@@ -55,6 +33,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/RepeatRequest'
+      operationId: postRepeatRequests
+      x-operation-id-source: derived
   /repeat-requests/{repeatrequestId}:
     parameters:
     - $ref: '#/components/parameters/RepeatRequestId'
@@ -69,6 +49,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/RepeatRequest'
+      operationId: getRepeatRequestsByRepeatrequestId
+      x-operation-id-source: derived
   /repeat-requests/{repeatrequestId}/status:
     parameters:
     - $ref: '#/components/parameters/RepeatRequestId'
@@ -83,6 +65,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/StatusObject'
+      operationId: getRepeatRequestsByRepeatrequestIdStatus
+      x-operation-id-source: derived
     post:
       tags:
       - RepeatRequests
@@ -100,6 +84,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/StatusObject'
+      operationId: postRepeatRequestsByRepeatrequestIdStatus
+      x-operation-id-source: derived
   /repeat-requests/search:
     post:
       tags:
@@ -123,48 +109,10 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/RepeatRequest'
+      operationId: postRepeatRequestsSearch
+      x-operation-id-source: derived
 components:
   schemas:
-    RepeatRequest:
-      type: object
-      properties:
-        repeatrequestId:
-          type: string
-        type:
-          type: string
-          default: Feature
-        geometry:
-          $ref: '#/components/schemas/GeoJSON'
-        properties:
-          allOf:
-          - $ref: '#/components/schemas/CollectionProperties'
-          - type: object
-            properties:
-              repetitionProperties:
-                type: object
-                properties:
-                  repeatStart:
-                    type: string
-                    format: date-time
-                  repeatEnd:
-                    type: string
-                    format: date-time
-                  repetitionInterval:
-                    type: integer
-                  repetitionCount:
-                    type: integer
-      additionalProperties: true
-    StatusObject:
-      type: object
-      properties:
-        status:
-          type: string
-        statusHistory:
-          type: array
-          items:
-            type: object
-            additionalProperties: true
-      additionalProperties: true
     SearchQuery:
       type: object
       properties:
@@ -179,10 +127,6 @@ components:
         sortby:
           type: string
       additionalProperties: true
-    GeoJSON:
-      type: object
-      description: GeoJSON Geometry object.
-      additionalProperties: true
     StatusUpdate:
       type: object
       properties:
@@ -196,6 +140,17 @@ components:
           - completed
         comments:
           type: string
+      additionalProperties: true
+    StatusObject:
+      type: object
+      properties:
+        status:
+          type: string
+        statusHistory:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
       additionalProperties: true
     CollectionProperties:
       type: object
@@ -232,6 +187,39 @@ components:
           - VV
           - HV
           - VH
+      additionalProperties: true
+    RepeatRequest:
+      type: object
+      properties:
+        repeatrequestId:
+          type: string
+        type:
+          type: string
+          default: Feature
+        geometry:
+          $ref: '#/components/schemas/GeoJSON'
+        properties:
+          allOf:
+          - $ref: '#/components/schemas/CollectionProperties'
+          - type: object
+            properties:
+              repetitionProperties:
+                type: object
+                properties:
+                  repeatStart:
+                    type: string
+                    format: date-time
+                  repeatEnd:
+                    type: string
+                    format: date-time
+                  repetitionInterval:
+                    type: integer
+                  repetitionCount:
+                    type: integer
+      additionalProperties: true
+    GeoJSON:
+      type: object
+      description: GeoJSON Geometry object.
       additionalProperties: true
   parameters:
     RepeatRequestId:

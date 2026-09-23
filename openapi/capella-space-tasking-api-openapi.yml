@@ -1,31 +1,9 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Capella Space Collects Tasking API
+  title: Capella Space Tasking API
   description: 'Capella Space provides on-demand synthetic aperture radar (SAR) imagery
 
-    through a self-service Console and public API. This specification
-
-    consolidates publicly documented endpoints from the Capella Space
-
-    documentation (https://docs.capellaspace.com/) for tasking, repeat
-
-    tasking, orders, downloads, and API keys.
-
-
-    All requests authenticate with a bearer token obtained from the Capella
-
-    Console; long-lived API keys are managed via the /keys endpoint.
-
-
-    Best-effort hand-authored spec. Request and response payloads use
-
-    permissive schemas where the public docs do not enumerate the full
-
-    property set; consult the Capella documentation for production
-
-    integrations.
-
-    '
+    through a self-service Console and public API.'
   version: 1.0.0
   contact:
     name: Capella Space Support
@@ -42,9 +20,7 @@ paths:
       tags:
       - Tasking
       summary: Submit a tasking request
-      description: 'Submit a new tasking request against the Capella SAR constellation.
-
-        '
+      description: Submit a new tasking request against the Capella SAR constellation.
       requestBody:
         required: true
         content:
@@ -58,6 +34,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/TaskingRequest'
+      operationId: postTask
+      x-operation-id-source: derived
   /task/{taskingrequestId}:
     parameters:
     - $ref: '#/components/parameters/TaskingRequestId'
@@ -72,6 +50,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/TaskingRequest'
+      operationId: getTaskByTaskingrequestId
+      x-operation-id-source: derived
   /task/{taskingrequestId}/status:
     parameters:
     - $ref: '#/components/parameters/TaskingRequestId'
@@ -86,6 +66,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/StatusObject'
+      operationId: getTaskByTaskingrequestIdStatus
+      x-operation-id-source: derived
     post:
       tags:
       - Tasking
@@ -103,6 +85,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/StatusObject'
+      operationId: postTaskByTaskingrequestIdStatus
+      x-operation-id-source: derived
   /tasks/search:
     post:
       tags:
@@ -126,8 +110,49 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/TaskingRequest'
+      operationId: postTasksSearch
+      x-operation-id-source: derived
 components:
   schemas:
+    SearchQuery:
+      type: object
+      properties:
+        bbox:
+          type: array
+          items:
+            type: number
+        datetime:
+          type: string
+        limit:
+          type: integer
+        sortby:
+          type: string
+      additionalProperties: true
+    StatusUpdate:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - review
+          - accepted
+          - rejected
+          - cancelled
+          - completed
+        comments:
+          type: string
+      additionalProperties: true
+    StatusObject:
+      type: object
+      properties:
+        status:
+          type: string
+        statusHistory:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+      additionalProperties: true
     CollectionProperties:
       type: object
       properties:
@@ -177,48 +202,9 @@ components:
         properties:
           $ref: '#/components/schemas/CollectionProperties'
       additionalProperties: true
-    StatusObject:
-      type: object
-      properties:
-        status:
-          type: string
-        statusHistory:
-          type: array
-          items:
-            type: object
-            additionalProperties: true
-      additionalProperties: true
-    SearchQuery:
-      type: object
-      properties:
-        bbox:
-          type: array
-          items:
-            type: number
-        datetime:
-          type: string
-        limit:
-          type: integer
-        sortby:
-          type: string
-      additionalProperties: true
     GeoJSON:
       type: object
       description: GeoJSON Geometry object.
-      additionalProperties: true
-    StatusUpdate:
-      type: object
-      properties:
-        status:
-          type: string
-          enum:
-          - review
-          - accepted
-          - rejected
-          - cancelled
-          - completed
-        comments:
-          type: string
       additionalProperties: true
   parameters:
     TaskingRequestId:
