@@ -142,6 +142,23 @@ components:
         comments:
           type: string
       additionalProperties: true
+    GeoJSON:
+      type: object
+      description: GeoJSON Geometry object.
+      additionalProperties: true
+    TaskingRequest:
+      type: object
+      properties:
+        taskingrequestId:
+          type: string
+        type:
+          type: string
+          default: Feature
+        geometry:
+          $ref: '#/components/schemas/GeoJSON'
+        properties:
+          $ref: '#/components/schemas/CollectionProperties'
+      additionalProperties: true
     StatusObject:
       type: object
       properties:
@@ -188,23 +205,6 @@ components:
           - VV
           - HV
           - VH
-      additionalProperties: true
-    TaskingRequest:
-      type: object
-      properties:
-        taskingrequestId:
-          type: string
-        type:
-          type: string
-          default: Feature
-        geometry:
-          $ref: '#/components/schemas/GeoJSON'
-        properties:
-          $ref: '#/components/schemas/CollectionProperties'
-      additionalProperties: true
-    GeoJSON:
-      type: object
-      description: GeoJSON Geometry object.
       additionalProperties: true
   parameters:
     TaskingRequestId:

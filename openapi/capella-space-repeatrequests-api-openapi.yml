@@ -113,6 +113,35 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    RepeatRequest:
+      type: object
+      properties:
+        repeatrequestId:
+          type: string
+        type:
+          type: string
+          default: Feature
+        geometry:
+          $ref: '#/components/schemas/GeoJSON'
+        properties:
+          allOf:
+          - $ref: '#/components/schemas/CollectionProperties'
+          - type: object
+            properties:
+              repetitionProperties:
+                type: object
+                properties:
+                  repeatStart:
+                    type: string
+                    format: date-time
+                  repeatEnd:
+                    type: string
+                    format: date-time
+                  repetitionInterval:
+                    type: integer
+                  repetitionCount:
+                    type: integer
+      additionalProperties: true
     SearchQuery:
       type: object
       properties:
@@ -140,6 +169,10 @@ components:
           - completed
         comments:
           type: string
+      additionalProperties: true
+    GeoJSON:
+      type: object
+      description: GeoJSON Geometry object.
       additionalProperties: true
     StatusObject:
       type: object
@@ -187,39 +220,6 @@ components:
           - VV
           - HV
           - VH
-      additionalProperties: true
-    RepeatRequest:
-      type: object
-      properties:
-        repeatrequestId:
-          type: string
-        type:
-          type: string
-          default: Feature
-        geometry:
-          $ref: '#/components/schemas/GeoJSON'
-        properties:
-          allOf:
-          - $ref: '#/components/schemas/CollectionProperties'
-          - type: object
-            properties:
-              repetitionProperties:
-                type: object
-                properties:
-                  repeatStart:
-                    type: string
-                    format: date-time
-                  repeatEnd:
-                    type: string
-                    format: date-time
-                  repetitionInterval:
-                    type: integer
-                  repetitionCount:
-                    type: integer
-      additionalProperties: true
-    GeoJSON:
-      type: object
-      description: GeoJSON Geometry object.
       additionalProperties: true
   parameters:
     RepeatRequestId:

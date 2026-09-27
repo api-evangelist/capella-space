@@ -81,16 +81,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    Order:
-      type: object
-      properties:
-        orderId:
-          type: string
-        orderStatus:
-          type: string
-        userId:
-          type: string
-      additionalProperties: true
     OrderRequest:
       type: object
       properties:
@@ -104,6 +94,16 @@ components:
               collectionId:
                 type: string
             additionalProperties: true
+      additionalProperties: true
+    Order:
+      type: object
+      properties:
+        orderId:
+          type: string
+        orderStatus:
+          type: string
+        userId:
+          type: string
       additionalProperties: true
   securitySchemes:
     bearerAuth:
