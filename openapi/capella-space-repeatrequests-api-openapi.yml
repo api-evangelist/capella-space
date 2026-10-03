@@ -113,6 +113,20 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    SearchQuery:
+      type: object
+      properties:
+        bbox:
+          type: array
+          items:
+            type: number
+        datetime:
+          type: string
+        limit:
+          type: integer
+        sortby:
+          type: string
+      additionalProperties: true
     RepeatRequest:
       type: object
       properties:
@@ -141,49 +155,6 @@ components:
                     type: integer
                   repetitionCount:
                     type: integer
-      additionalProperties: true
-    SearchQuery:
-      type: object
-      properties:
-        bbox:
-          type: array
-          items:
-            type: number
-        datetime:
-          type: string
-        limit:
-          type: integer
-        sortby:
-          type: string
-      additionalProperties: true
-    StatusUpdate:
-      type: object
-      properties:
-        status:
-          type: string
-          enum:
-          - review
-          - accepted
-          - rejected
-          - cancelled
-          - completed
-        comments:
-          type: string
-      additionalProperties: true
-    GeoJSON:
-      type: object
-      description: GeoJSON Geometry object.
-      additionalProperties: true
-    StatusObject:
-      type: object
-      properties:
-        status:
-          type: string
-        statusHistory:
-          type: array
-          items:
-            type: object
-            additionalProperties: true
       additionalProperties: true
     CollectionProperties:
       type: object
@@ -220,6 +191,35 @@ components:
           - VV
           - HV
           - VH
+      additionalProperties: true
+    StatusObject:
+      type: object
+      properties:
+        status:
+          type: string
+        statusHistory:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+      additionalProperties: true
+    GeoJSON:
+      type: object
+      description: GeoJSON Geometry object.
+      additionalProperties: true
+    StatusUpdate:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - review
+          - accepted
+          - rejected
+          - cancelled
+          - completed
+        comments:
+          type: string
       additionalProperties: true
   parameters:
     RepeatRequestId:

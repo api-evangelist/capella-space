@@ -128,24 +128,6 @@ components:
         sortby:
           type: string
       additionalProperties: true
-    StatusUpdate:
-      type: object
-      properties:
-        status:
-          type: string
-          enum:
-          - review
-          - accepted
-          - rejected
-          - cancelled
-          - completed
-        comments:
-          type: string
-      additionalProperties: true
-    GeoJSON:
-      type: object
-      description: GeoJSON Geometry object.
-      additionalProperties: true
     TaskingRequest:
       type: object
       properties:
@@ -158,17 +140,6 @@ components:
           $ref: '#/components/schemas/GeoJSON'
         properties:
           $ref: '#/components/schemas/CollectionProperties'
-      additionalProperties: true
-    StatusObject:
-      type: object
-      properties:
-        status:
-          type: string
-        statusHistory:
-          type: array
-          items:
-            type: object
-            additionalProperties: true
       additionalProperties: true
     CollectionProperties:
       type: object
@@ -205,6 +176,35 @@ components:
           - VV
           - HV
           - VH
+      additionalProperties: true
+    StatusObject:
+      type: object
+      properties:
+        status:
+          type: string
+        statusHistory:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+      additionalProperties: true
+    GeoJSON:
+      type: object
+      description: GeoJSON Geometry object.
+      additionalProperties: true
+    StatusUpdate:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - review
+          - accepted
+          - rejected
+          - cancelled
+          - completed
+        comments:
+          type: string
       additionalProperties: true
   parameters:
     TaskingRequestId:
