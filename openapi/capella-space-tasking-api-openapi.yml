@@ -114,32 +114,30 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    SearchQuery:
+    StatusObject:
       type: object
       properties:
-        bbox:
+        status:
+          type: string
+        statusHistory:
           type: array
           items:
-            type: number
-        datetime:
-          type: string
-        limit:
-          type: integer
-        sortby:
-          type: string
+            type: object
+            additionalProperties: true
       additionalProperties: true
-    TaskingRequest:
+    StatusUpdate:
       type: object
       properties:
-        taskingrequestId:
+        status:
           type: string
-        type:
+          enum:
+          - review
+          - accepted
+          - rejected
+          - cancelled
+          - completed
+        comments:
           type: string
-          default: Feature
-        geometry:
-          $ref: '#/components/schemas/GeoJSON'
-        properties:
-          $ref: '#/components/schemas/CollectionProperties'
       additionalProperties: true
     CollectionProperties:
       type: object
@@ -177,34 +175,36 @@ components:
           - HV
           - VH
       additionalProperties: true
-    StatusObject:
-      type: object
-      properties:
-        status:
-          type: string
-        statusHistory:
-          type: array
-          items:
-            type: object
-            additionalProperties: true
-      additionalProperties: true
     GeoJSON:
       type: object
       description: GeoJSON Geometry object.
       additionalProperties: true
-    StatusUpdate:
+    SearchQuery:
       type: object
       properties:
-        status:
+        bbox:
+          type: array
+          items:
+            type: number
+        datetime:
           type: string
-          enum:
-          - review
-          - accepted
-          - rejected
-          - cancelled
-          - completed
-        comments:
+        limit:
+          type: integer
+        sortby:
           type: string
+      additionalProperties: true
+    TaskingRequest:
+      type: object
+      properties:
+        taskingrequestId:
+          type: string
+        type:
+          type: string
+          default: Feature
+        geometry:
+          $ref: '#/components/schemas/GeoJSON'
+        properties:
+          $ref: '#/components/schemas/CollectionProperties'
       additionalProperties: true
   parameters:
     TaskingRequestId:
