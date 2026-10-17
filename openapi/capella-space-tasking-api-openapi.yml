@@ -114,29 +114,18 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    StatusObject:
+    SearchQuery:
       type: object
       properties:
-        status:
-          type: string
-        statusHistory:
+        bbox:
           type: array
           items:
-            type: object
-            additionalProperties: true
-      additionalProperties: true
-    StatusUpdate:
-      type: object
-      properties:
-        status:
+            type: number
+        datetime:
           type: string
-          enum:
-          - review
-          - accepted
-          - rejected
-          - cancelled
-          - completed
-        comments:
+        limit:
+          type: integer
+        sortby:
           type: string
       additionalProperties: true
     CollectionProperties:
@@ -175,23 +164,34 @@ components:
           - HV
           - VH
       additionalProperties: true
+    StatusObject:
+      type: object
+      properties:
+        status:
+          type: string
+        statusHistory:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+      additionalProperties: true
+    StatusUpdate:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - review
+          - accepted
+          - rejected
+          - cancelled
+          - completed
+        comments:
+          type: string
+      additionalProperties: true
     GeoJSON:
       type: object
       description: GeoJSON Geometry object.
-      additionalProperties: true
-    SearchQuery:
-      type: object
-      properties:
-        bbox:
-          type: array
-          items:
-            type: number
-        datetime:
-          type: string
-        limit:
-          type: integer
-        sortby:
-          type: string
       additionalProperties: true
     TaskingRequest:
       type: object

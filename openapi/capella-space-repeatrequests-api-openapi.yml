@@ -113,29 +113,47 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    StatusObject:
+    RepeatRequest:
       type: object
       properties:
-        status:
+        repeatrequestId:
           type: string
-        statusHistory:
+        type:
+          type: string
+          default: Feature
+        geometry:
+          $ref: '#/components/schemas/GeoJSON'
+        properties:
+          allOf:
+          - $ref: '#/components/schemas/CollectionProperties'
+          - type: object
+            properties:
+              repetitionProperties:
+                type: object
+                properties:
+                  repeatStart:
+                    type: string
+                    format: date-time
+                  repeatEnd:
+                    type: string
+                    format: date-time
+                  repetitionInterval:
+                    type: integer
+                  repetitionCount:
+                    type: integer
+      additionalProperties: true
+    SearchQuery:
+      type: object
+      properties:
+        bbox:
           type: array
           items:
-            type: object
-            additionalProperties: true
-      additionalProperties: true
-    StatusUpdate:
-      type: object
-      properties:
-        status:
+            type: number
+        datetime:
           type: string
-          enum:
-          - review
-          - accepted
-          - rejected
-          - cancelled
-          - completed
-        comments:
+        limit:
+          type: integer
+        sortby:
           type: string
       additionalProperties: true
     CollectionProperties:
@@ -174,52 +192,34 @@ components:
           - HV
           - VH
       additionalProperties: true
-    RepeatRequest:
+    StatusObject:
       type: object
       properties:
-        repeatrequestId:
+        status:
           type: string
-        type:
+        statusHistory:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+      additionalProperties: true
+    StatusUpdate:
+      type: object
+      properties:
+        status:
           type: string
-          default: Feature
-        geometry:
-          $ref: '#/components/schemas/GeoJSON'
-        properties:
-          allOf:
-          - $ref: '#/components/schemas/CollectionProperties'
-          - type: object
-            properties:
-              repetitionProperties:
-                type: object
-                properties:
-                  repeatStart:
-                    type: string
-                    format: date-time
-                  repeatEnd:
-                    type: string
-                    format: date-time
-                  repetitionInterval:
-                    type: integer
-                  repetitionCount:
-                    type: integer
+          enum:
+          - review
+          - accepted
+          - rejected
+          - cancelled
+          - completed
+        comments:
+          type: string
       additionalProperties: true
     GeoJSON:
       type: object
       description: GeoJSON Geometry object.
-      additionalProperties: true
-    SearchQuery:
-      type: object
-      properties:
-        bbox:
-          type: array
-          items:
-            type: number
-        datetime:
-          type: string
-        limit:
-          type: integer
-        sortby:
-          type: string
       additionalProperties: true
   parameters:
     RepeatRequestId:
