@@ -1,4 +1,4 @@
-# Capella Space (capella-space)
+# Capella Space
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,123 +66,132 @@
 
 Capella Space operates a constellation of synthetic aperture radar (SAR) satellites and provides on-demand, high-resolution Earth-observation imagery through a self-service Console and public API. Customers can task the constellation with 15-minute scheduling cycles, search a STAC-based catalog of archive collects, place orders, and download imagery products for defense, intelligence, maritime, energy, insurance, and analytics use cases.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/capella-space/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/capella-space/refs/heads/main/apis.yml)
+**Areas:** Synthetic Aperture Radar · SAR · Earth Observation · Satellite Imagery · Geospatial · STAC · Remote Sensing · Tasking · Catalog · Satellite
 
-## Scope
+## Capella Space on APIs.io
 
-- **Type:** Index
+Everything profiled for Capella Space is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/capella-space/](https://apis.io/providers/capella-space/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (9)
 
-- Synthetic Aperture Radar
-- SAR
-- Earth Observation
-- Satellite Imagery
-- Geospatial
-- STAC
-- Remote Sensing
-- Tasking
-- Catalog
+- [Capella Space Tasking API](https://apis.io/apis/capella-space/capella-tasking-api/) — The Capella Tasking API lets customers submit imagery tasking requests against the Capella SAR constellation, configure collect parameters (geometry,…
+- [Capella Space Catalog API](https://apis.io/apis/capella-space/capella-catalog-api/) — The Capella Catalog API is a STAC-compliant search interface over the archive of SAR collects. Clients query the catalog by geometry, time, product type,…
+- [Capella Space Orders API](https://apis.io/apis/capella-space/capella-orders-api/) — The Capella Orders API submits and tracks orders for SAR products, manages order lifecycle, and returns signed download URLs for completed imagery via…
+- [Capella Space Collects API](https://apis.io/apis/capella-space/capella-space-collects-api/) — The Collects API from Capella Space — 1 operation(s) for collects.
+- [Capella Space Keys API](https://apis.io/apis/capella-space/capella-space-keys-api/) — The Keys API from Capella Space — 1 operation(s) for keys.
+- [Capella Space Orders API](https://apis.io/apis/capella-space/capella-space-orders-api/) — The Orders API from Capella Space — 3 operation(s) for orders.
+- [Capella Space RepeatRequests API](https://apis.io/apis/capella-space/capella-space-repeatrequests-api/) — The RepeatRequests API from Capella Space — 4 operation(s) for repeatrequests.
+- [Capella Space Tasking API](https://apis.io/apis/capella-space/capella-space-tasking-api/) — The Tasking API from Capella Space — 4 operation(s) for tasking.
+- [Capella Space Tiles API](https://apis.io/apis/capella-space/capella-space-tiles-api/) — The Tiles API from Capella Space — 1 operation(s) for tiles.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-05-23
-- **Modified:** 2026-05-23
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Capella Space Tasking API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-The Capella Tasking API lets customers submit imagery tasking requests against the Capella SAR constellation, configure collect parameters (geometry, resolution, polarization, look direction, off-nadir angle), monitor tasking and collect statuses, and manage repeat tasking. Supports 15-minute scheduling cycles and flexible collection tiers.
+- [Capella Space Agentic Access](https://apis.io/agentic-access/capella-space/capella-space-agentic-access/)
 
-- **Human URL:** [https://docs.capellaspace.com/api/tasking/](https://docs.capellaspace.com/api/tasking/)
-- **Base URL:** `https://api.capellaspace.com`
+#### Collections (7)
 
-#### Tags
+Postman and Open Collection request collections.
 
-- Tasking
-- SAR
-- Collects
-- Scheduling
+- [Capella Space API](https://apis.io/collections/capella-space/open-capella-space/)
+- [Capella Space Collects API](https://apis.io/collections/capella-space/open-capella-space-collects-api/)
+- [Capella Space Collects Keys API](https://apis.io/collections/capella-space/open-capella-space-keys-api/)
+- [Capella Space Collects Orders API](https://apis.io/collections/capella-space/open-capella-space-orders-api/)
+- [Capella Space Collects RepeatRequests API](https://apis.io/collections/capella-space/open-capella-space-repeatrequests-api/)
+- [Capella Space Collects Tasking API](https://apis.io/collections/capella-space/open-capella-space-tasking-api/)
+- [Capella Space Collects Tiles API](https://apis.io/collections/capella-space/open-capella-space-tiles-api/)
 
-#### Properties
+#### Security (2)
 
-- [Documentation](https://docs.capellaspace.com/api/tasking/)
-- [Authentication](https://docs.capellaspace.com/)
-- [Sign Up](https://console.capellaspace.com/)
-- [Postman Collection](collections/capella-space.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/capella-space.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Authentication, trust centre, and vulnerability disclosure.
 
-### Capella Space Catalog API
+- [Capella Space Authentication](https://apis.io/security/capella-space/capella-space-authentication/)
+- [Capella Space Domain Security](https://apis.io/security/capella-space/capella-space-domain-security/)
 
-The Capella Catalog API is a STAC-compliant search interface over the archive of SAR collects. Clients query the catalog by geometry, time, product type, resolution, and polarization to discover scenes available for ordering and download.
+#### Plans and pricing (1)
 
-- **Human URL:** [https://docs.capellaspace.com/api/catalog/](https://docs.capellaspace.com/api/catalog/)
-- **Base URL:** `https://api.capellaspace.com`
+Published plans, tiers and prices.
 
-#### Tags
+- [Capella Space Plans Pricing](https://apis.io/plans/capella-space/capella-space-plans-pricing/)
 
-- Catalog
-- STAC
-- Search
-- Discovery
+#### Rate limits (1)
 
-#### Properties
+Published request limits.
 
-- [Documentation](https://docs.capellaspace.com/api/catalog/)
-- [Authentication](https://docs.capellaspace.com/)
-- [Postman Collection](collections/capella-space.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/capella-space.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Capella Space Rate Limits](https://apis.io/rate-limits/capella-space/capella-space-rate-limits/)
 
-### Capella Space Orders API
+#### FinOps (1)
 
-The Capella Orders API submits and tracks orders for SAR products, manages order lifecycle, and returns signed download URLs for completed imagery via endpoints such as GET /orders/{orderId}/download.
+What the API costs to run, by operation.
 
-- **Human URL:** [https://docs.capellaspace.com/accessing-data/ordering-and-downloading/](https://docs.capellaspace.com/accessing-data/ordering-and-downloading/)
-- **Base URL:** `https://api.capellaspace.com`
+- [Capella Space Finops](https://apis.io/finops/capella-space/capella-space-finops/)
 
-#### Tags
+## Where to find this API
 
-- Orders
-- Download
-- Fulfillment
-
-#### Properties
-
-- [Documentation](https://docs.capellaspace.com/accessing-data/ordering-and-downloading/)
-- [Authentication](https://docs.capellaspace.com/)
-- [Postman Collection](collections/capella-space.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/capella-space.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.capellaspace.com)
 - [Documentation](https://docs.capellaspace.com/)
-- [API Reference](https://support.capellaspace.com/api-reference-and-documentation)
-- [Getting Started](https://docs.capellaspace.com/)
-- [Console](https://console.capellaspace.com/)
-- [Sign Up](https://console.capellaspace.com/)
-- [Login](https://console.capellaspace.com/)
+- [Getting started](https://docs.capellaspace.com/)
+- [API reference](https://support.capellaspace.com/api-reference-and-documentation)
 - [Support](https://support.capellaspace.com/)
-- [Knowledge Base](https://support.capellaspace.com/)
 - [Blog](https://www.capellaspace.com/insights)
-- [Newsroom](https://www.capellaspace.com/news)
-- [GitHub Organization](https://github.com/capellaspace)
-- [SDK](https://github.com/capellaspace/console-client)
-- [SDK](https://capella-console-client.readthedocs.io/en/main/pages/api_reference.html)
-- [Sample Code](https://github.com/capellaspace/jupyter-notebooks)
-- [Sample Code](https://github.com/capellaspace/postman_collections)
-- [Sample Code](https://github.com/capellaspace/capella-reader)
-- [LinkedIn](https://www.linkedin.com/company/capella-space)
-- [Twitter](https://twitter.com/capellaspace)
-- [YouTube](https://www.youtube.com/c/CapellaSpace)
-- [Features](undefined)
-- [Use Cases](undefined)
-- [Authentication](undefined)
-- [Compliance](undefined)
-- [Integrations](undefined)
+- [GitHub](https://github.com/capellaspace)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 31.9** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 67.0 |
+| Contract quality | 45.9 |
+| Contract governance | 0.0 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 52.4 |
+| Access clarity | 13.2 |
+
+**Agent readiness 19.6** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 16.7** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/capella-space/](https://apis.io/providers/capella-space/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Capella Space: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/capella-space/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
